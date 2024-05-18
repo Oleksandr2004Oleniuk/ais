@@ -1,0 +1,14 @@
+---
+- name: Update hostname
+  hosts: target
+  become: true
+  tasks:
+    - name: Update /etc/hostname
+      copy:
+        content: "name-surename-lab2\n"
+        dest: /etc/hostname
+        owner: root
+        group: root
+        mode: '0644'
+    - name: Set hostname
+      command: hostnamectl set-hostname name-surename-lab2
